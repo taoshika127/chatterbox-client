@@ -8,6 +8,7 @@ var FormView = {
 
   initialize: function() {
     FormView.$form.on('submit', FormView.handleSubmit);
+    console.log($('.submit').val());
   },
 
   handleSubmit: function(event) {
@@ -16,8 +17,13 @@ var FormView = {
 
     // TODO: Currently, this is all handleSubmit does.
     // Make this function actually send a message to the Parse API.
-  
-    console.log('click!');
+    var message = {
+      username: 'testname1',
+      text: $('#message').val(),
+      roomname: 'testroom1',
+    };
+    Parse.create(message);
+    // App.fetch();
   },
 
   setStatus: function(active) {
