@@ -17,6 +17,7 @@ var MessagesView = {
     //FormView.setStatus(false);
     data.forEach(function(message) {
       MessagesView.renderMessage(message);
+      console.log(decodeURI(window.location.search.slice(10)));
     });
   },
 

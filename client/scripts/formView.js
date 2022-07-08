@@ -18,17 +18,23 @@ var FormView = {
     // TODO: Currently, this is all handleSubmit does.
     // Make this function actually send a message to the Parse API.
     var message = {
-      username: 'testname1',
+      username: decodeURI(App.username),
       text: $('#message').val(),
       roomname: 'testroom1',
     };
     Parse.create(message);
-    // App.fetch();
+    FormView.renderMessage();
   },
 
   setStatus: function(active) {
     var status = active ? 'true' : null;
     FormView.$form.find('input[type=submit]').attr('disabled', status);
+  },
+
+  renderMessage: function() {
+    $('#chats').load('chatterbox.html null', function() {
+      App.fetch();
+    })
   }
 
 };

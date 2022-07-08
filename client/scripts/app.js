@@ -18,10 +18,10 @@ var App = {
     // Fetch initial batch of messages
     App.startSpinner();
     App.fetch(App.stopSpinner);
+    setInterval(FormView.renderMessage, 10000); //<------- NEED TO IMPROVE
 
     // TODO: Make sure the app loads data from the API
     // continually, instead of just once at the start.
-
 
   },
 
