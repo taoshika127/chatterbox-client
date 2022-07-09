@@ -21,16 +21,20 @@ var RoomsView = {
         RoomsView.renderRoom(obj.roomname);
       }
     });
-    console.log(Rooms._roomList);
   },
 
   renderRoom: function(roomname) {
     // TODO: Render out a single room.
-    RoomsView.$select.append('<option class = "roomname">' + roomname + '</option>');
+    var obj = {roomname: roomname};
+    var compiled = _.template(`
+    <option class = "roomname"><%- roomname %></option>
+    `);
+    RoomsView.$select.append(compiled(obj));
+
   },
 
   handleChange: function() {
-    // TODO: Handle a user selecting a different room.
+    // TODO: Handle a user selecting a different room
     $('#myselect').on('change', FormView.renderMessage);
   },
 

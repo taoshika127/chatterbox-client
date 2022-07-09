@@ -16,6 +16,7 @@ var MessagesView = {
     App.stopSpinner();
     //FormView.setStatus(false);
     var selectedOption = $('#myselect option:selected').html();
+
     data.forEach(function(message) {
       if (message.roomname === selectedOption || selectedOption === 'lobby') {
         MessagesView.renderMessage(message);

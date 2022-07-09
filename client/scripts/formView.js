@@ -22,7 +22,6 @@ var FormView = {
       text: $('#message').val(),
       roomname: $('#myselect option:selected').html(),
     };
-    console.log($('#myselect option:selected').html());
     Parse.create(message);
     FormView.renderMessage();
   },

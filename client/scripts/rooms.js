@@ -15,7 +15,6 @@ var Rooms = {
     if (!Rooms._roomList[roomname]) {
       Rooms._roomList[roomname] = true;
     }
-    console.log(Rooms._roomList);
     RoomsView.renderRoom(roomname);
     return roomname;
   },
