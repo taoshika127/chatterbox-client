@@ -10,19 +10,28 @@ var RoomsView = {
     // TODO: Perform any work which needs to be done
     // when this view loads.
     RoomsView.handleClick();
+    RoomsView.handleChange();
   },
 
-  render: function() {
+  render: function(data) {
     // TODO: Render out the list of rooms.
+    data.forEach(function(obj) {
+      if (!Rooms._roomList[obj.roomname] && obj.roomname) {
+        Rooms._roomList[obj.roomname] = true;
+        RoomsView.renderRoom(obj.roomname);
+      }
+    });
+    console.log(Rooms._roomList);
   },
 
   renderRoom: function(roomname) {
     // TODO: Render out a single room.
-    RoomsView.$select.append('<div class = "roomname">' + roomname + '</div>');
+    RoomsView.$select.append('<option class = "roomname">' + roomname + '</option>');
   },
 
-  handleChange: function(event) {
+  handleChange: function() {
     // TODO: Handle a user selecting a different room.
+    $('#myselect').on('change', FormView.renderMessage);
   },
 
   handleClick: function(event) {

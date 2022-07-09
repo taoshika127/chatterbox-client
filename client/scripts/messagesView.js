@@ -15,9 +15,11 @@ var MessagesView = {
     // TODO: Render _all_ the messages.
     App.stopSpinner();
     //FormView.setStatus(false);
+    var selectedOption = $('#myselect option:selected').html();
     data.forEach(function(message) {
-      MessagesView.renderMessage(message);
-      console.log(decodeURI(window.location.search.slice(10)));
+      if (message.roomname === selectedOption || selectedOption === 'lobby') {
+        MessagesView.renderMessage(message);
+      }
     });
   },
 

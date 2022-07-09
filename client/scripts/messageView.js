@@ -6,15 +6,13 @@ var MessageView = {
   // here: https://underscorejs.org/#template.
   // TODO: Update this template accordingly.
   render: function(obj) {
-    var copyObj = JSON.parse(JSON.stringify(obj));
-    copyObj.text = _.escape(obj.text);
     var compiled = _.template(`
     <div class="chat">
       <div class="username"><%- username %>: </div>
       <div class="text"><%- text %></div>
     </div>
     `);
-    return compiled(copyObj);
+    return compiled(obj);
   }
 
 };

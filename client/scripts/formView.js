@@ -20,8 +20,9 @@ var FormView = {
     var message = {
       username: decodeURI(App.username),
       text: $('#message').val(),
-      roomname: 'testroom1',
+      roomname: $('#myselect option:selected').html(),
     };
+    console.log($('#myselect option:selected').html());
     Parse.create(message);
     FormView.renderMessage();
   },
@@ -34,7 +35,7 @@ var FormView = {
   renderMessage: function() {
     $('#chats').load('chatterbox.html null', function() {
       App.fetch();
-    })
-  }
+    });
+  },
 
 };
